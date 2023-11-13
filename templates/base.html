@@ -1,3 +1,5 @@
+{% load static %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -15,7 +17,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="">
+    <link rel="stylesheet" href="{% static 'css/base.css' %}">
     {% endblock %}
     
     {% block extra_css %}
@@ -32,7 +34,7 @@
 
 {% block extra_js %}
 {% endblock %}
-<title><strong>GamIE</strong>{%block extra_title%}{%endblock%}</title>
+<title>GamIE{%block extra_title%}{%endblock%}</title>
 <body>
 <header class="conatainer-fluid fixed-top">
     <div class="row">
@@ -82,9 +84,9 @@
                             <div><i class="fas fa-shopping-bag fa-lg"></i></div>
                             <p class="my-0">
                                 {% if grand_total %}
-                                    ${{ grand_total|floatformat:2 }}
+                               € {{ grand_total|floatformat:2 }}
                                 {% else %}
-                                    $0.00
+                                    €0.00
                                 {% endif %}
                             </p>
                         </div>

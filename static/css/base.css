@@ -1,0 +1,30 @@
+html{
+    height: 100%;
+}
+
+body{
+    background: url(/media/black-banner.jpg) no-repeat center center fixed;
+    background-size: contain;
+    height: calc(100vh);
+    color: #555;
+    font-family: 'Chakra Petch';
+}
+
+
+#banner-text {
+    text-transform: uppercase; 
+    
+    background-color: rgba(255, 255, 255, 0.39);
+    background: linear-gradient(to right, violet, indigo, blue, green, yellow, orange, red);
+    -webkit-background-clip: text;
+    color: transparent;
+}
+
+.shop-now-button {
+    background-color: rgb(255, 255, 255);
+    transition: transform 0.3s ease; 
+}
+
+.shop-now-button:hover {
+    transform: scale(1.1); 
+}
