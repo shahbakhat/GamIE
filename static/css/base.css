@@ -22,9 +22,10 @@ body{
 
 .shop-now-button {
     background-color: rgb(255, 255, 255);
-    transition: transform 0.3s ease; 
+    transition: transform 0.5s ease; 
+    transform-origin: bottom ;
 }
 
 .shop-now-button:hover {
-    transform: scale(1.1); 
+    transform: scale(1.09); 
 }
