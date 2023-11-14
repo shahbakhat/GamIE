@@ -43,6 +43,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'products',
+
+    #Other
+    'crispy_forms',
 ]
 
 MIDDLEWARE = [
@@ -164,3 +167,5 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
+
