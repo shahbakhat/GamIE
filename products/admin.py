@@ -1,10 +1,10 @@
 from django.contrib import admin
-from . models import Product,Category
-# Register your models here.
+from .models import Product, Category
+
 
 class ProductAdmin(admin.ModelAdmin):
     """
-    Custom admin Product Model.
+    Custom Admin configuration for the Product Model.
     """
     list_display = (
         'sku',
@@ -20,12 +20,13 @@ class ProductAdmin(admin.ModelAdmin):
 
 class CategoryAdmin(admin.ModelAdmin):
     """
-    Custom admin Category Model
+    Custom Admin configuration for the Category Model
     """
     list_display = (
         'friendly_name',
         'name',
     )
+
 
 admin.site.register(Product, ProductAdmin)
 admin.site.register(Category, CategoryAdmin)

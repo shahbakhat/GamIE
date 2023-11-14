@@ -4,14 +4,20 @@ from .models import Product, Category
 
 
 class ProductForm(forms.ModelForm):
-
+    """
+    Form class for the Product model.
+    Meta class specifies the model to use and includes all the fields.
+    Form's __init__() method customizes the category field choices to user
+    friendly names and adds CSS class to form fields.
+    """
     class Meta:
         model = Product
         fields = '__all__'
 
-    image = forms.ImageField(label='Image',
-                             required=False,
-                             widget=CustomClearableFileInput)
+    image = forms.ImageField(
+        label='image', required=False,
+        widget=CustomClearableFileInput,
+    )
 
     def __init__(self, *args, **kwargs):
         super().__init__(*args, **kwargs)

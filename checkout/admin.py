@@ -1,20 +1,20 @@
 from django.contrib import admin
-from .models import Order
-
-# Register your models here.
-
-from django.contrib import admin
 from .models import Order, OrderLineItem
 
 
 class OrderLineItemAdminInline(admin.TabularInline):
+    """
+    Show line item on the admin page
+    """
     model = OrderLineItem
     readonly_fields = ('lineitem_total',)
 
 
 class OrderAdmin(admin.ModelAdmin):
+    """
+    Show orders on the admin page
+    """
     inlines = (OrderLineItemAdminInline,)
-
     readonly_fields = ('order_number', 'date',
                        'delivery_cost', 'order_total',
                        'grand_total', 'original_cart',
