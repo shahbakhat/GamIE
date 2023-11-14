@@ -8,7 +8,7 @@ from django.contrib.auth.decorators import login_required
 from .forms import ProductForm
 # Create your views here.
 
-def all_products (request):
+def all_products(request):
     """A view to render all products page"""
 
     products = Product.objects.all()
@@ -16,7 +16,6 @@ def all_products (request):
     categories = None
     sort = None
     direction = None
-<<<<<<< HEAD
 
     if request.GET:
         if 'sort' in request.GET:
@@ -34,27 +33,6 @@ def all_products (request):
             products = products.order_by(sortkey)
 
         if 'category' in request.GET:
-=======
-
-
-    if request.GET:
-        if 'sort' in request.GET:
-            sortkey = request.GET['sort']
-            sort = sortkey
-            if sortkey == 'name':
-                sortkey = 'lower_name'
-                products = products.annotate(lower_name=Lower('name'))
-            if sortkey == 'category':
-                sortkey = 'category__name'
-            if 'direction' in request.GET:
-                direction = request.GET['direction']
-                if direction == 'desc':
-                    sortkey = f'-{sortkey}'
-            products = products.order_by(sortkey)
-
-
-    if 'category' in request.GET:
->>>>>>> 77ce1539c30c25959dc2899f3459d0bfa6ab967f
             categories = request.GET['category'].split(',')
             products = products.filter(category__name__in=categories)
             categories = Category.objects.filter(name__in=categories)
@@ -62,8 +40,7 @@ def all_products (request):
         if 'q' in request.GET:
             query = request.GET['q']
             if not query:
-                messages.error(request,
-                               ("You didn't enter any search criteria!"))
+                messages.error(request, "You didn't enter any search criteria!")
                 return redirect(reverse('products'))
 
             queries = Q(name__icontains=query) | Q(description__icontains=query)
