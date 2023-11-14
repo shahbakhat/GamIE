@@ -22,10 +22,10 @@
               PCs and Bundles
             </a>
             <div class="dropdown-menu border-0" aria-labelledby="clothing-link">
-                <a href="" class="dropdown-item">PCs</a>
-                <a href="" class="dropdown-item">Gaming Bundles</a>
-                <a href="" class="dropdown-item">PC components</a>
-                <a href="" class="dropdown-item">Graphic and video cards</a>
+                <a href="{% url 'products' %}?category=pcs" class="dropdown-item">PCs</a>
+                <a href="{% url 'products' %}?category=bundles" class="dropdown-item">Bundles</a>
+                <a href="{% url 'products' %}?category=components" class="dropdown-item">PC components</a>
+                <a href="{% url 'products' %}?category=gpu,cpu" class="dropdown-item">Graphic and video cards</a>
             </div>
         </li>
 

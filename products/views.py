@@ -1,7 +1,7 @@
 from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.db.models import Q
 from django.contrib import messages
-from .models import Product
+from .models import Product, Category
 
 from django.contrib.auth.decorators import login_required
 from .forms import ProductForm
@@ -11,6 +11,16 @@ def all_products (request):
     """A view to render all products page"""
 
     products = Product.objects.all()
+    query = None
+    categories = None
+
+    
+    if 'category' in request.GET:
+            categories = request.GET['category'].split(',')
+            products = products.filter(category__name__in=categories)
+            categories = Category.objects.filter(name__in=categories)
+    
+
     if request.GET:
         if 'q' in request.GET:
             query = request.GET['q']
