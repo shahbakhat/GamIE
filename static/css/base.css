@@ -3,9 +3,9 @@ html{
 }
 
 body{
-    background: url(/media/black-banner.jpg) no-repeat center center fixed;
-    background-size: contain;
-    height: calc(100vh);
+    background: url(/media/gamer.jpg) no-repeat center center fixed;
+    background-size: cover;
+    height: calc(100vh - 164px);
     color: #555;
     font-family: 'Chakra Petch';
 }
@@ -31,13 +31,14 @@ body{
     transform-origin: bottom ;
 }
 
+
 /* from Bulma */
 .icon {
-    align-items: center;
-    display: inline-flex;
-    justify-content: center;
-    height: 1.5rem;
-    width: 1.5rem;
+    align-items: center ;
+    display: inline-flex  ;
+    justify-content: center  t;
+    height: 1.5rem ;
+    width: 1.5rem  ;
 }
 
 
