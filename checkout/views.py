@@ -9,7 +9,7 @@ from .models import Order, OrderLineItem
 from products.models import Product
 from profiles.models import UserProfile
 from profiles.forms import UserProfileForm
-from cart.contexts import cart_contents
+from bag.contexts import bag_contents
 from django.core.mail import send_mail
 from django.template.loader import render_to_string
 import stripe

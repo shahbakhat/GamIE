@@ -43,9 +43,9 @@ INSTALLED_APPS = [
     'allauth.socialaccount',
     'home',
     'products',
-    'cart',
     'checkout',
     'profiles',
+    'bag',
 
     #Other
     'crispy_forms',
@@ -170,5 +170,20 @@ ACCOUNT_SIGNUP_EMAIL_ENTER_TWICE = True
 ACCOUNT_USERNAME_MIN_LENGTH = 4
 LOGIN_URL = '/accounts/login/'
 LOGIN_REDIRECT_URL = '/'
+
+
 CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
+from decouple import config
+
+if 'DEVELOPMENT' in os.environ:
+    EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
+    DEFAULT_FROM_EMAIL = 'powerprotein@example.com'
+else:
+    EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+    EMAIL_USE_TLS = True
+    EMAIL_PORT = 587
+    EMAIL_HOST = 'smtp.gmail.com'
+    EMAIL_HOST_USER = config('EMAIL_HOST_USER')
+    EMAIL_HOST_PASSWORD = config('EMAIL_HOST_PASS')
+    DEFAULT_FROM_EMAIL = config('EMAIL_HOST_USER')
